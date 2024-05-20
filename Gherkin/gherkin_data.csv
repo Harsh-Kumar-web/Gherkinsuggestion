@@ -1,0 +1,78 @@
+user_input,gherkin_scenario
+go to the seats page,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights
+Then the user is on the fare review page
+When the user reviews the fares
+Then the user is on the passengers page
+When the user enters passenger details
+Then the user is on the seats page
+When the user selects seats"
+decline insurance,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights
+Then the user is on the fare review page
+When the user reviews the fares
+Then the user is on the passengers page
+When the user enters passenger details
+Then the user is on the seats page
+When the user selects seats
+Then the user is on the meals page
+When the user selects meals
+Then the user is on the insurance page
+When the user declines insurance options"
+complete payment,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights
+Then the user is on the fare review page
+When the user reviews the fares
+Then the user is on the passengers page
+When the user enters passenger details
+Then the user is on the seats page
+When the user selects seats
+Then the user is on the meals page
+When the user selects meals
+Then the user is on the insurance page
+When the user selects insurance options
+Then the user is on the payment page
+When the user completes the payment"
+review fares,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights
+Then the user is on the fare review page
+When the user reviews the fares"
+enter passenger details,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights
+Then the user is on the fare review page
+When the user reviews the fares
+Then the user is on the passengers page
+When the user enters passenger details"
+select meals,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights
+Then the user is on the fare review page
+When the user reviews the fares
+Then the user is on the passengers page
+When the user enters passenger details
+Then the user is on the seats page
+When the user selects seats
+Then the user is on the meals page
+When the user selects meals"
+accept insurance,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights
+Then the user is on the fare review page
+When the user reviews the fares
+Then the user is on the passengers page
+When the user enters passenger details
+Then the user is on the seats page
+When the user selects seats
+Then the user is on the meals page
+When the user selects meals
+Then the user is on the insurance page
+When the user accepts insurance options"
+search for flights,"Given the user is on the home page
+When the user enters flight details
+And the user searches for flights"
+return to home page,Given the user is on the home page

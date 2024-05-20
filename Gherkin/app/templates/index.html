@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gherkin Scenario Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        .loading {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .gherkin-line {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-bottom: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        .copy-btn {
+            margin-top: 10px;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background-color: #008CBA;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .copy-btn:hover {
+            background-color: #005f6b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gherkin Scenario Generator</h1>
+    <form id="gherkinForm" method="POST">
+        <input type="text" name="user_input" placeholder="Enter your user story" required>
+        <button type="submit">Generate Scenario</button>
+    </form>
+    <div id="loading" class="loading" style="display: none;"></div>
+    <div class="result">
+        {% if gherkin %}
+            <h2>Generated Gherkin Scenario</h2>
+            <div id="gherkinLines">
+                {% for line in gherkin.split('\n') %}
+                    <div class="gherkin-line">{{ line }}</div>
+                {% endfor %}
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+        {% endif %}
+    </div>
+    <script>
+        document.getElementById('gherkinForm').addEventListener('submit', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+
+        function copyToClipboard() {
+            const textToCopy = document.getElementById('gherkinLines').innerText;
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    alert('Gherkin scenario copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy Gherkin scenario: ', err);
+                });
+        }
+    </script>
+</body>
+</html>
